@@ -5,6 +5,8 @@ import store from "./store.js";
 
 import EditableGreeting from "./editable_greeting";
 
+// Connection EditableGreeting to the Redux store
+
 function mapStateToProps(state)  {
   return {
     value: state.greeting
