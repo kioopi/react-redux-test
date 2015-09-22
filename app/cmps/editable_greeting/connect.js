@@ -1,20 +1,16 @@
 import EditableGreeting from "./editable_greeting";
 import { Provider, connect } from 'react-redux';
 
-function mapStateToProps(state)  {
-  return {
-    value: state.greeting
-  };
-}
+let mapStateToProps = (state) => ({
+  value: state.greeting
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    onChange: (value) => dispatch({
-      type: 'greet',
-      greeting: value
-    })
-  };
-}
+let mapDispatchToProps = (dispatch) => ({
+  onChange: (value) => dispatch({
+    type: 'greet',
+    greeting: value
+  })
+});
 
 export default connect(
   mapStateToProps,

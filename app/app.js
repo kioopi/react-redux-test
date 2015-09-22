@@ -4,9 +4,13 @@ import store from "./store.js";
 
 import Root from "./cmps/root/root.js";
 
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+import { Provider } from 'react-redux';
 
+// child of redux provider need to be a function
+// this will change in future version
 React.render(
-  <Root />,
+  <Provider store={store}>
+    {() => <Root /> }
+  </Provider>,
   document.body
 );

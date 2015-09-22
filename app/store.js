@@ -1,17 +1,34 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import { devTools, persistState } from 'redux-devtools';
+import { combineReducers } from 'redux';
 
-// creating a redux store with a single action
 
+// Reducers
 function greetingAction(state={greeting: 'World'}, action) {
   switch(action.type){
     case 'greet':
-      return {greeting: action.greeting};
+      return {...state, greeting: action.greeting};
     default:
       return state;
   }
 }
 
+const articles = [
+  { title: 'Article 1', text: 'Some text', image: { url: 'http://takopost.com/wp-content/uploads/2015/08/Google_Logo.png' }},
+  { title: 'Article 2', text: 'Some more text', image: { url: 'http://www.plusyourbusiness.com/wp-content/uploads/2013/11/GooglePlus-Logo-Official.png' }}
+];
+
+function articleAction(state=articles, action) {
+  return state;
+}
+
+const app = combineReducers({
+  greeting: greetingAction,
+  articles: articleAction
+});
+
+
+// middleware
 const finalCreateStore = compose(
   // Enables your middleware:
   // applyMiddleware(m1, m2, m3), // any Redux middleware, e.g. redux-thunk
@@ -21,4 +38,5 @@ const finalCreateStore = compose(
   persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 )(createStore);
 
-export default finalCreateStore(greetingAction);
+// store from middleware and reducers
+export default finalCreateStore(app);
