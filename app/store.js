@@ -22,9 +22,31 @@ function articleAction(state=articles, action) {
   return state;
 }
 
+const menuItems = [
+ { label: 'Start', imageUrl: 'http://uxrepo.com/static/icon-sets/mfg-labs/png32/36/000000/globe-inv-36-000000.png' },
+ { label: 'Live', imageUrl: 'http://uxrepo.com/static/icon-sets/mfg-labs/png32/36/000000/globe-inv-36-000000.png' },
+ { label: 'Menu', imageUrl: 'http://uxrepo.com/static/icon-sets/mfg-labs/png32/36/000000/globe-inv-36-000000.png' },
+];
+
+function menu(state=menuItems, action) {
+  return state;
+}
+
+function section(state={activeSection: 'start'}, action) {
+ if (action.type == 'selectSection') {
+   let st = {...state, activeSection: action.section};
+   console.log('select section ' + action.section, st);
+   return st;
+ } else {
+   return state;
+ }
+}
+
 const app = combineReducers({
   greeting: greetingAction,
-  articles: articleAction
+  articles: articleAction,
+  menu,
+  section
 });
 
 

@@ -1,9 +1,6 @@
 import React from 'react';
-
 import store from "./store.js";
-
-import Root from "./cmps/root/root.js";
-
+import Root from "./cmps/root/connect";
 import { Provider } from 'react-redux';
 
 // child of redux provider need to be a function
