@@ -2,7 +2,9 @@ import Menu from "./menu";
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => ({
-  menu: state.menu,
+  menu: state.section.sections.map((item) => {
+    return  { ...item.menu, slug: item.slug}
+  }),
   activeSection: state.section.activeSection
 });
 

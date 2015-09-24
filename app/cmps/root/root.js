@@ -1,8 +1,7 @@
 import React from "react";
 
-import EditableGreeting from "../editable_greeting/connect";
-import ArticleList from "../article_list/connect";
 import Menu from "../menu/connect";
+import Sections from "../sections/connect";
 import store from "../../store";
 
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
@@ -11,17 +10,21 @@ import styles from './styles.css';
 
 export default class extends React.Component {
   render() {
+
+    let sections = this.props.sections.map((item) => {
+      return React.createElement(item.cmp);
+    });
+
     return (
       <div className={styles.root + ' ' + this.props.activeSection}>
-        <div className={styles.header}>
+
+        <div className={styles.headerContainer}>
           Header
         </div>
 
-        <div className={styles.main}>
-          <ArticleList />
-        </div>
+        <Sections />
 
-        <div className={styles.footer}>
+        <div className={styles.footerContainer}>
          <Menu />
         </div>
 

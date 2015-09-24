@@ -1,4 +1,4 @@
-import Root from "./root";
+import Sections from "./sections";
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => ({
@@ -11,4 +11,4 @@ let mapDispatchToProps = (dispatch) => ({ });
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Root);
+)(Sections);

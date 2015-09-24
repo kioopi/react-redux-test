@@ -2,7 +2,7 @@ import EditableGreeting from "./editable_greeting";
 import { Provider, connect } from 'react-redux';
 
 let mapStateToProps = (state) => ({
-  value: state.greeting
+  value: state.greeting.greeting
 });
 
 let mapDispatchToProps = (dispatch) => ({

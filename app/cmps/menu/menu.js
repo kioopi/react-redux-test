@@ -6,9 +6,11 @@ export default class extends React.Component {
   render() {
     let buttons = this.props.menu.map((btn) => {
       let clickHandler = () => {
-        this.props.selectSection(btn.label.toLowerCase());
+        this.props.selectSection(btn.slug);
       };
-      let active = this.props.activeSection == btn.label.toLowerCase();
+
+      let active = this.props.activeSection == btn.slug;
+
       return <Button label={btn.label} icon={btn.imageUrl} onClick={clickHandler} active={active} />;
     });
 
