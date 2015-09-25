@@ -32,10 +32,9 @@
  * `reducers.js` collects redux actions/reducers from the main app and modules and joins them.
  * `store.js` creates a Redux-store from reducers.js
 
- Modules consist of directories containing a couple of files:
+Modules consist of directories containing a couple of files:
 
-  * `actions.js` defines the derux actions of the module.
-  * `reducer.js` redux reducer that is loaded by `reducers.js`
+  * `actions.js` defines the redux actions of the module. Redux actions share a namespace.
+  * `reducer.js` defines how the store is altered by actions. Loaded by `reducers.js`.
   * `connect.js` wraps the root component of the module and connects it store.
-  * A react component (tree).
-
+  * a react component (tree).
