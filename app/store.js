@@ -8,6 +8,9 @@ import React from "react";
 import EditableGreeting from "./cmps/editable_greeting/connect";
 import ArticleList from "./cmps/article_list/connect";
 
+import Menu from './menu/connect';
+import menu from './menu/reducer';
+
 // Reducers
 function greetingAction(state={greeting: 'World'}, action) {
   switch(action.type){
@@ -37,17 +40,13 @@ const sections = [
     slug: 'greeting',
     cmp: EditableGreeting,
     menu: { label: 'Hello', imageUrl: 'http://uxrepo.com/static/icon-sets/mfg-labs/png32/36/000000/globe-inv-36-000000.png' },
+  },
+  {
+    slug: 'menu',
+    cmp: Menu,
+    menu: { label: 'Menu', imageUrl: 'http://uxrepo.com/static/icon-sets/mfg-labs/png32/36/000000/globe-inv-36-000000.png' },
   }
 ];
-
-const menuItems = [
- { label: 'Live', imageUrl: 'http://uxrepo.com/static/icon-sets/mfg-labs/png32/36/000000/globe-inv-36-000000.png' },
- { label: 'Menu', imageUrl: 'http://uxrepo.com/static/icon-sets/mfg-labs/png32/36/000000/globe-inv-36-000000.png' },
-];
-
-function menu(state=menuItems, action) {
-  return state;
-}
 
 function section(state={sections: sections, activeSection: 'start'}, action) {
  if (action.type == 'selectSection') {
@@ -62,8 +61,8 @@ function section(state={sections: sections, activeSection: 'start'}, action) {
 const app = combineReducers({
   greeting: greetingAction,
   articles: articleAction,
-  menu,
-  section
+  section,
+  menu
 });
 
 
