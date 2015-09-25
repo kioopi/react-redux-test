@@ -1,4 +1,4 @@
-import ArticleList from "./article_list";
+import ArticleList from "./cmps/article_list/article_list";
 import { Provider, connect } from 'react-redux';
 
 let mapStateToProps = (state) => ({

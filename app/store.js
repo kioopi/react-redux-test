@@ -4,23 +4,16 @@ import { combineReducers } from 'redux';
 
 import React from "react";
 
+import ArticleList from "./articles/connect";
+import articles from './articles/reducer';
+
 import EditableGreeting from "./greeting/connect";
-import ArticleList from "./cmps/article_list/connect";
+import greeting from './greeting/reducer';
 
 import Menu from './menu/connect';
 import menu from './menu/reducer';
 
-import greeting from './greeting/reducer';
 
-
-const defaultArticles = [
-  { title: 'Article 1', text: 'Some text', image: { url: 'http://takopost.com/wp-content/uploads/2015/08/Google_Logo.png' }},
-  { title: 'Article 2', text: 'Some more text', image: { url: 'http://www.plusyourbusiness.com/wp-content/uploads/2013/11/GooglePlus-Logo-Official.png' }}
-];
-
-function articles(state=defaultArticles, action) {
-  return state;
-}
 
 const sections = [
   {
