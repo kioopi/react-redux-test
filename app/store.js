@@ -4,29 +4,21 @@ import { combineReducers } from 'redux';
 
 import React from "react";
 
-
-import EditableGreeting from "./cmps/editable_greeting/connect";
+import EditableGreeting from "./greeting/connect";
 import ArticleList from "./cmps/article_list/connect";
 
 import Menu from './menu/connect';
 import menu from './menu/reducer';
 
-// Reducers
-function greetingAction(state={greeting: 'World'}, action) {
-  switch(action.type){
-    case 'greet':
-      return {...state, greeting: action.greeting};
-    default:
-      return state;
-  }
-}
+import greeting from './greeting/reducer';
 
-const articles = [
+
+const defaultArticles = [
   { title: 'Article 1', text: 'Some text', image: { url: 'http://takopost.com/wp-content/uploads/2015/08/Google_Logo.png' }},
   { title: 'Article 2', text: 'Some more text', image: { url: 'http://www.plusyourbusiness.com/wp-content/uploads/2013/11/GooglePlus-Logo-Official.png' }}
 ];
 
-function articleAction(state=articles, action) {
+function articles(state=defaultArticles, action) {
   return state;
 }
 
@@ -59,8 +51,8 @@ function section(state={sections: sections, activeSection: 'start'}, action) {
 }
 
 const app = combineReducers({
-  greeting: greetingAction,
-  articles: articleAction,
+  greeting,
+  articles,
   section,
   menu
 });

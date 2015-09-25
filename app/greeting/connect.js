@@ -1,5 +1,5 @@
-import EditableGreeting from "./editable_greeting";
-import { Provider, connect } from 'react-redux';
+import EditableGreeting from "./cmps/editable_greeting/editable_greeting";
+import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => ({
   value: state.greeting.greeting
