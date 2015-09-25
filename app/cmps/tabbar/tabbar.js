@@ -4,7 +4,7 @@ import styles from './styles.css';
 
 export default class extends React.Component {
   render() {
-    let buttons = this.props.menu.map((btn) => {
+    let buttons = this.props.tabs.map((btn) => {
       let clickHandler = () => {
         this.props.selectSection(btn.slug);
       };

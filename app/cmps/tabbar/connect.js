@@ -1,8 +1,8 @@
-import Menu from "./menu";
+import Tabbar from "./tabbar";
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => ({
-  menu: state.section.sections.map((item) => {
+  tabs: state.section.sections.map((item) => {
     return  { ...item.menu, slug: item.slug}
   }),
   activeSection: state.section.activeSection
@@ -18,4 +18,4 @@ let mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Menu);
+)(Tabbar);

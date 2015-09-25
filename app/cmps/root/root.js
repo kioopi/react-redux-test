@@ -1,6 +1,6 @@
 import React from "react";
 
-import Menu from "../menu/connect";
+import Tabbar from "../tabbar/connect";
 import Sections from "../sections/connect";
 import store from "../../store";
 
@@ -25,7 +25,7 @@ export default class extends React.Component {
         <Sections />
 
         <div className={styles.footerContainer}>
-         <Menu />
+         <Tabbar />
         </div>
 
         <DebugPanel top right bottom>
