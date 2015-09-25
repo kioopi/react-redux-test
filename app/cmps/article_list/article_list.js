@@ -6,7 +6,7 @@ export default class extends React.Component {
   render() {
 
     let articles = this.props.articles.map((item) => {
-      return <Article data={item} className="start" />;
+      return <Article data={item} />;
     });
 
     return (
